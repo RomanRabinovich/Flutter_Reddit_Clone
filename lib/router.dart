@@ -1,15 +1,15 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_application_4/features/auth/screen/login_screen.dart';
-// import 'package:flutter_application_4/features/home/screens/home_screen.dart';
-// import 'package:routemaster/routemaster.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_4/features/auth/screen/login_screen.dart';
+import 'package:flutter_application_4/features/home/screens/home_screen.dart';
+import 'package:routemaster/routemaster.dart';
 
-// final loggedOutRoute = RouteMap(routes: {
-//   '/': (_) => const MaterialPage(child: LoginScreen()),
-// });
+final loggedOutRoute = RouteMap(routes: {
+  '/': (_) => const MaterialPage(child: LoginScreen()),
+});
 
-// final loggedInRoute = RouteMap(routes: {
-//   '/': (_) => const MaterialPage(child: HomeScreen()),
-// });
+final loggedInRoute = RouteMap(routes: {
+  '/': (_) => const MaterialPage(child: HomeScreen()),
+});
 
 // // final loggedInRoute = RouteMap(
 // //   routes: {
