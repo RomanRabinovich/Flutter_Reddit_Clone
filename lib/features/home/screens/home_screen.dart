@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/features/auth/controller/auth_controller.dart';
+import 'package:flutter_application_4/features/home/drawers/community_list_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -10,9 +11,27 @@ class HomeScreen extends ConsumerWidget {
     final user = ref.watch(userProvider)!;
 
     return Scaffold(
-      body: Center(
-        child: Text(user.name),
+      appBar: AppBar(
+        title: const Text('Home'),
+        centerTitle: false,
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {},
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+          IconButton(
+            icon: CircleAvatar(
+              backgroundImage: NetworkImage(user.profilePic),
+            ),
+            onPressed: () {},
+          )
+        ],
       ),
+      drawer: CommunityListDrawer(),
     );
   }
 }
