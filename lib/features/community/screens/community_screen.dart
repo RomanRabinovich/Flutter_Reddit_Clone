@@ -13,7 +13,7 @@ class CommunityScreen extends ConsumerWidget {
   // http://localhost:4000/r/flutter
 
   void navigateToModTools(BuildContext context) {
-    Routemaster.of(context).push('/mod-tools');
+    Routemaster.of(context).push('/mod-tools/$name');
   }
 
   @override

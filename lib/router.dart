@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_4/features/auth/screen/login_screen.dart';
 import 'package:flutter_application_4/features/community/screens/community_screen.dart';
 import 'package:flutter_application_4/features/community/screens/create_community_screen.dart';
+import 'package:flutter_application_4/features/community/screens/edit_community_screen.dart';
 import 'package:flutter_application_4/features/community/screens/mod_tools_screen.dart';
 import 'package:flutter_application_4/features/home/screens/home_screen.dart';
 import 'package:routemaster/routemaster.dart';
@@ -15,11 +16,18 @@ final loggedInRoute = RouteMap(routes: {
   '/create-community': (_) =>
       const MaterialPage(child: CreateCommunityScreen()),
   '/r/:name': (route) => MaterialPage(
-        child: CommunityScreen(
-          name: route.pathParameters['name']!,
+        child: CommunityScreen(name: route.pathParameters['name']!),
+      ),
+  '/mod-tools/:name': (routeData) => MaterialPage(
+        child: ModToolsScreen(
+          name: routeData.pathParameters['name']!,
         ),
       ),
-  '/mod-tools': (_) => const MaterialPage(child: ModToolsScreen()),
+  '/edit-community/:name': (routeData) => MaterialPage(
+        child: EditCommunityScreen(
+          name: routeData.pathParameters['name']!,
+        ),
+      ),
 });
 
 // // final loggedInRoute = RouteMap(
