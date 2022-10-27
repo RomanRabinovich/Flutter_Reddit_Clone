@@ -32,6 +32,10 @@ final getCommunityByNameProvider = StreamProvider.family((ref, String name) {
       .getCommunityByName(name);
 });
 
+final searchCommunityProvider = StreamProvider.family((ref, String query) {
+  return ref.watch(communityControllerProvider.notifier).searchCommunity(query);
+});
+
 class CommunityController extends StateNotifier<bool> {
   final CommunityRepository _communityRepository;
   final Ref _ref;
@@ -84,7 +88,7 @@ class CommunityController extends StateNotifier<bool> {
     required BuildContext context,
     required Community community,
   }) async {
-    // state = true;
+    state = true;
     if (profileFile != null) {
       // communities/profile/memes
       final res = await _storageRepository.storeFile(
@@ -114,9 +118,14 @@ class CommunityController extends StateNotifier<bool> {
     }
 
     final res = await _communityRepository.editCommunity(community);
+    state = false;
     res.fold(
       (l) => showSnackBar(context, l.message),
       (r) => Routemaster.of(context).pop(),
     );
+  }
+
+  Stream<List<Community>> searchCommunity(String query) {
+    return _communityRepository.searchCommunity(query);
   }
 }
