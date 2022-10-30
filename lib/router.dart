@@ -6,6 +6,7 @@ import 'package:flutter_application_4/features/community/screens/create_communit
 import 'package:flutter_application_4/features/community/screens/edit_community_screen.dart';
 import 'package:flutter_application_4/features/community/screens/mod_tools_screen.dart';
 import 'package:flutter_application_4/features/home/screens/home_screen.dart';
+import 'package:flutter_application_4/features/post/screens/add_post_type_screen.dart';
 import 'package:flutter_application_4/features/user_profile/screen/edit_profile_screen.dart';
 import 'package:flutter_application_4/features/user_profile/screen/user_profile_screen.dart';
 import 'package:routemaster/routemaster.dart';
@@ -44,6 +45,11 @@ final loggedInRoute = RouteMap(routes: {
   '/edit-profile/:uid': (routeData) => MaterialPage(
         child: EditProfileScreen(
           uid: routeData.pathParameters['uid']!,
+        ),
+      ),
+  '/add-post/:type': (routeData) => MaterialPage(
+        child: AddPostTypeScreen(
+          type: routeData.pathParameters['type']!,
         ),
       ),
 });
