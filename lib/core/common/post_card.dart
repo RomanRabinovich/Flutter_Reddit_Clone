@@ -131,11 +131,41 @@ class PostCard extends ConsumerWidget {
                             children: [
                               IconButton(
                                 onPressed: () {},
-                                icon: const Icon(
+                                icon: Icon(
                                   Constants.up,
                                   size: 30,
-                                  //  color: post.upvotes.contains(user.uid) ? Pallete.redColor : null,
+                                  color: post.upvotes.contains(user.uid)
+                                      ? Pallete.redColor
+                                      : null,
                                 ),
+                              ),
+                              Text(
+                                '${post.upvotes.length - post.downvotes.length == 0 ? 'Vote' : post.upvotes.length - post.downvotes.length}',
+                                style: const TextStyle(fontSize: 17),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Constants.down,
+                                  size: 30,
+                                  color: post.downvotes.contains(user.uid)
+                                      ? Pallete.blueColor
+                                      : null,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.comment,
+                                ),
+                              ),
+                              Text(
+                                '${post.commentCount == 0 ? 'Comment' : post.commentCount}',
+                                style: const TextStyle(fontSize: 17),
                               ),
                             ],
                           ),
